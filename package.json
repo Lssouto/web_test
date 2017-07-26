@@ -4,7 +4,8 @@
   "description": "backend for teste web",
   "main": "http.js",
   "scripts": {
-    "start": "cd ./app/server && node index.js"
+    "start": "cd ./app/server && node index.js",
+    
   },
   "keywords": [
     "testeweb"
