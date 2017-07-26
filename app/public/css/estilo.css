@@ -1,7 +1,7 @@
 /*Estilo do site*/
 body{
 	font-family: Verdana, Geneva, sans-serif;
-	font-size: 1.2em;
+	font-size: 2em;
 	border-top: 8px solid #db812d;
 	color: #333;
 }
@@ -55,7 +55,7 @@ body{
 /*Estilo para computador*/
 @media(min-width: 992px){
 	.container{
-		font-size: 1.3em;
+		font-size: 1em;
 		width: none;
 	}
 	.container_table{
