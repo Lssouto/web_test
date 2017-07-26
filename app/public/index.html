@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="negMercadoria">
+<head>
+	<meta charset="UTF-8">
+	<title>Plataforma de Negociação</title>
+
+	<!-- Bootstrap -->
+	<link rel="stylesheet" type="text/css" href="lib/bootstrap/bootstrap.min.css">
+	<!-- Estilos -->
+ 	<link rel="stylesheet" href="css/menu_responsivo.css">
+ 	<link rel="stylesheet" href="css/estilo.css">
+	
+</head>
+<body>
+	<!-- Inicio do container total -->
+	<div class="container" ng-controller="negMercadoriaCtrl">
+
+		<!-- Inicio do container do form -->
+		<div class="container_form col-md-3">
+
+			<!-- Div para ocultar/exibir o formulário, visivel somente em width menor que 991px-->
+			<!-- Ao clicar na div, ela faz uma alteracao no display do addForm -->
+			<div class="form-mobile" ng-init="form_toggle = false"  ng-click="form_toggle = !form_toggle" ng-class="form_toggle? 'form-mobile-open' : ' ' ">	</div>
+			
+			<!-- Inicio do addForm -->
+			<form name="addForm" ng-class="form_toggle ? 'form-active' : 'form' ">
+
+				<h4 class="text-center">Adicionar Mercadoria</h4>
+				
+				<!-- Inicio dos input de texto -->
+				<div class="row-">
+					<label for="tipo">Tipo</label>
+					<input class="form-control" type="text" ng-model="produto.tipo" name="tipo" placeholder="Tipo" required/>
+
+					<label for="nome">Nome</label>
+					<input class="form-control" type="text" ng-model="produto.nome" name="nome" placeholder="Nome" required "/>
+	
+					<label for="quantidade">Quantidade</label>
+					<input class="form-control" type="number" ng-model="produto.qtd " name="quantidade" placeholder="Quantidade" value="" min="1"  required"/>
+
+					<label for="preco">Preço</label>
+					<input class="form-control" type="number" ng-model="produto.preco " name="preco" placeholder="Preco" min="1"  required />
+				</div>
+				<!-- Fim dos input de texto -->
+
+				<!-- Inicio dos radio -->
+				<div class="row col-sm-2 col-md-12">
+					<input type="radio" ng-model="produto.tpNeg" name="radio" id="radioCompra" value="compra" />
+					<label for="radioCompra">Compra</label>
+					<br />
+					<input type="radio" ng-model="produto.tpNeg" name="radio" id="radioVenda" value="venda" />
+					<label for="radioVenda">Venda</label>
+				</div>	
+				<!-- Fim dos radio -->
+
+				<!-- Inicio dos botoes -->
+				<div class="row">
+					<div class="col-xs-offset-0 col-xs-2 col-sm-offset-6 col-sm-2 col-md-offset-0 col-md-4">
+						<button class="btn" ng-click="formClear()">Limpar</button>
+					</div>
+
+					<div class="col-xs-offset-6 col-xs-2 col-sm-offset-0 col-sm-1 col-md-offset-2 col-md-4">
+						<button class="btn addBtn" ng-click="addMercadoria(produto)"> Adicionar</button>
+					</div>
+					<!-- Fim dos botoes -->
+				</div>
+			</form>
+			<!-- Fim do add Form -->
+		
+			<!-- Div para alertar erros -->
+			 <div class="col-md-12  alert-danger" ng-hide="error.hide" >
+					{{error.value}}
+			</div>
+
+		</div>
+		<!-- Fim do Container do form -->
+
+		<!-- Inicio do container de exibicao -->
+		<div class="container_table col-md-8">
+			
+			<!-- Input para busca de um dado -->
+			<input type="text" class="form-control" ng-model="filter.busca" placeholder="Buscando algo em especifico?" />
+
+			<!-- Inicio da Div da table -->
+			<div class="table-responsive">
+
+				<!-- Inicio da Tabela para exibicao dos dados -->
+				<table class="table table-striped">
+					<thead>
+						<tr>
+							<th><a href="" ng-click="criterioOrd	('codigo')">Codigo</a></th>
+							<th><a href="" ng-click="criterioOrd	('tipo')">Tipo</a></th>
+							<th><a href="" ng-click="criterioOrd	('nome')">Nome</a></th>
+							<th><a href="" ng-click="criterioOrd	('qtd')">Quantidade</a></th>
+							<th><a href="" ng-click="criterioOrd	('preco')">Preço</a></th>
+							<th><a href="" ng-click="criterioOrd	('tpNeg')">Negócio</a></th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr ng-repeat="produto in produtos | filter:filter.busca |  orderBy:campoOrd:campoDir">
+							<td>{{produto.codigo}}</td>
+							<td>{{produto.tipo}}</td>
+							<td>{{produto.nome}} </td>
+							<td>{{produto.qtd}} </td>
+							<td>{{produto.preco}}</td>
+							<td>{{produto.tpNeg}}</td>
+						</tr>
+					</tbody>
+				</table>
+				<!-- Fim da tabela para exibicao dos dados -->
+			</div>	
+			<!-- Fim da div da tabela -->
+		</div>
+		<!-- Fim do container de exibicao -->
+	</div>
+	<!-- Fim do container total -->
+
+<!-- Scripts -->
+
+	<!-- Boostrasp -->
+	<script src="lib/bootstrap/bootstrap.min.js"></script>
+	<!-- Angular -->
+	<script src="Lib/Angular/angular.min.js"></script>
+	<!-- Services -->
+	<script src="js/services/app.js"></script>
+	<!-- Controlers -->
+ 	<script src="js/controllers/negMercadoriaCtrl.js"></script>
+
+</body>
+</html>

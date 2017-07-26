@@ -1,0 +1,78 @@
+/*Estilo do site*/
+body{
+	font-family: Verdana, Geneva, sans-serif;
+	font-size: 1.2em;
+	border-top: 8px solid #db812d;
+	color: #333;
+}
+
+/*Estilo dos input*/
+.form-control{
+	margin-bottom: 10px;
+}
+
+/*Estilo do form*/
+.container_form{
+		min-height: 50px;
+		background-color:#b2d6e3;
+		padding: 10px;
+		padding-bottom: 30px;
+		margin-bottom: 10px;
+		border-radius: 0 0 5px 5px;
+}
+.addBtn{
+		background-color: #32c733;
+		color:#f4f4f4;
+		margin-bottom: 10px;
+	}
+
+/*Estilo da Tabela de exibicao*/
+.container_table{
+		background-color: #E6E6E6;
+		border-radius: 5px;
+		padding-top: 20px;
+	}
+.table-responsive{
+	overflow: auto;
+	max-height: 250px;
+}
+/*Estilo SOMENTE celular*/
+@media(max-width: 768px){
+	.container{
+	width: 100%;
+	}
+}
+/*Estilo Tablet*/
+@media(min-width: 768px){
+	.container_form{
+		padding-bottom: 50px;
+	}
+	.form-mobile{
+		height: 60px;
+	}
+}
+
+/*Estilo para computador*/
+@media(min-width: 992px){
+	.container{
+		font-size: 1.3em;
+		width: none;
+	}
+	.container_table{
+		min-height: 500px;
+		max-height: 500px;
+		border-radius: 0 0 5px 5px;
+
+	}
+	.btn{
+		margin-top: 25px;
+	}
+	.container_form{
+		min-height: 500px;
+		max-height: 500px;
+	}
+	.table-responsive{
+		max-height: 400px;
+	}
+
+}
