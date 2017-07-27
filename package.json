@@ -4,8 +4,7 @@
   "description": "backend for teste web",
   "main": "http.js",
   "scripts": {
-    "start": "cd ./app/server && node index.js",
-    
+    "start": "cd ./app/server && node index.js"
   },
   "keywords": [
     "testeweb"
@@ -13,6 +12,7 @@
   "author": "lucas-souto",
   "license": "ISC",
   "dependencies": {
+    "body-parser": "^1.17.2",
     "express": "^4.15.3"
   }
 }

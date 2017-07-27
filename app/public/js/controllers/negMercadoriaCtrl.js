@@ -16,7 +16,7 @@ app.controller("negMercadoriaCtrl", function($scope,$http){
 			
 			// Acessa o back e carrega os dados dos produtos, caso não acesse, mostra uma mensagem
 			var loadMercadoria = function(){
-					$http.get("api/produtos").then(function(valor,status){
+					$http.get("/api/produtos").then(function(valor,status){
 						$scope.produtos = valor.data;
 					},function(value,status){
 						console.log("Não foi possivel carregar os dados");
@@ -46,10 +46,11 @@ app.controller("negMercadoriaCtrl", function($scope,$http){
 					}
 					else{
 						resetError();
-						$http.get("api/produtos").then(function(valor,status){
+						$http.get("/api/produtos").then(function(valor,status){
 							produto.codigo = (valor.data[(valor.data.length-1)].codigo) + 1 ;
-									
-							$http.post("api/produtos",produto).then(function(valor){
+							console.log(produto);
+
+							$http.post("/api/produtos",produto).then(function(valor){
 						
 								loadMercadoria();
 								delete $scope.produto;
