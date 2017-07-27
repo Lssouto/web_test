@@ -9,8 +9,7 @@ var produtos = [
  {codigo: 2, tipo:"Escritorio", nome:"Mesa", qtd: 2, preco: 180, tpNeg:"compra"},
  {codigo: 3, tipo:"Eletronico", nome:"Impressora", qtd: 1, preco: 1000, tpNeg:"venda"},
  {codigo: 4, tipo:"Informatica", nome:"Mouse", qtd: 1, preco: 80, tpNeg:"venda"},
- {codigo: 5, tipo:"Escola", nome:"Caderno", qtd: 100, preco: 20, tpNeg:"compra"},
- 
+ {codigo: 5, tipo:"Escola", nome:"Caderno", qtd: 100, preco: 20, tpNeg:"compra"}
 ];
 
 router.get('/produtos', function (req, res) {
@@ -18,6 +17,7 @@ router.get('/produtos', function (req, res) {
 });
 
 router.post('/produtos', function (req, res) {
+   req.body.codigo = (produtos[produtos.length-1].codigo)+1;
    produtos.push(req.body);
    res.end();
 });

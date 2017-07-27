@@ -37,8 +37,8 @@ body{
 	}
 .table-responsive{
 	overflow: auto;
-	min-height: 450px;
-	max-height: 450px;
+	min-height: 350px;
+	/*max-height: 350px;*/
 }
 /*Estilo SOMENTE celular*/
 @media(max-width: 768px){
