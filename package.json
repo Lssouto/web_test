@@ -1,8 +1,8 @@
 {
-  "name": "nego_merc",
+  "name": "webtest-lucassouto",
   "version": "1.1.0",
-  "description": "backend for teste web",
-  "main": "http.js",
+  "description": "uma plataforma de negociacao de mercadorias",
+  "main": "index.js",
   "scripts": {
     "start": "cd ./app/server && node index.js"
   },
